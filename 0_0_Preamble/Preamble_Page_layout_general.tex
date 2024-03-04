@@ -177,6 +177,15 @@
 \else
 	\usepackage[protrusion=true, expansion=false, kerning=true]{microtype}
 \fi
+\makeatletter
+\MT@redefine@patch{eqnum}{%
+  \MT@patch@patch\tagform@{(}{\leftprotrusion{(}}%
+  \MT@patch@patch\tagform@{)}{\rightprotrusion{)}}%
+  \MT@ifdefined@n@TF{eqref }
+    {\MT@exp@cs\MT@patch@patch{eqref }}{\MT@patch@patch\eqref}
+       {\tagform@}{\@nameuse{MT@patch@saved@\string\tagform@}}%
+}{}
+\makeatother
 
 % Reduce by how much an interword space can shrink; see
 % http://tex.stackexchange.com/questions/19236/how-to-change-the-interword-spacing,
@@ -465,7 +474,7 @@
 
 \usepackage{longtable}
 
-%\usepackage{setspace}
+% \usepackage{setspace}
 
 %\DeclareCaptionLabelFormat{REStudTable}{\MakeUppercase{\tablename}~#2}
 %\DeclareCaptionTextFormat{REStudTableT}{\textit{#1}}

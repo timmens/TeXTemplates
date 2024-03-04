@@ -1,0 +1,60 @@
+\documentclass[a4paper, 10pt]{article}
+
+\newcommand{\papertitle}{A~Template for Academic Manuscripts}
+
+\input{0_0_Preamble/Preamble_Fundamental_packages}
+\hypersetup{
+	pdftitle={\papertitle},
+	pdfauthor={Adam Smith, Janet Smith, Jeremiah Smith}
+}
+
+\input{0_0_Preamble/Preamble_Page_layout_general}
+\input{0_0_Preamble/Preamble_Page_layout_paper}
+\subimport{0_0_Preamble/}{Preamble_Fonts_Charter_FiraSans}
+\input{0_0_Preamble/Preamble_Sansserif_math}
+\input{0_0_Preamble/Preamble_Commenting_and_highlighting}
+\input{0_0_Preamble/Preamble_Miscellaneous}
+
+% makes compilation much longer:
+% \input{0_0_Preamble/Preamble_BibLaTeX_AER}
+\input{0_0_Preamble/Preamble_BibLaTeX_APA}
+
+% Add global hyphenation rules to avoid unwelcome linebreaks:
+\hyphenation{Bu-shong Della-Vigna inter-tem-po-ral K\H{o}-szegi Spren-ger Bala-krish-nan}
+
+\bibliography{Library}
+
+\begin{document}
+
+\defcitealias{Koszegi2013}{K\H{o}szegi--Szeidl}
+
+% \selectlanguage{USenglish} \frenchspacing
+
+\input{source/titlepage}
+
+\clearpage
+
+\subimport{1_Example_Content/1_Introduction/}{Introduction}
+\subimport{1_Example_Content/2_Methods/}{Design}
+\subimport{1_Example_Content/2_Methods/}{Predictions}
+\subimport{1_Example_Content/3_Results/}{Results}
+\subimport{1_Example_Content/3_Results/}{Structural_Estimation}
+\subimport{1_Example_Content/4_Discussion/}{Discussion}
+\subimport{1_Example_Content/5_Conclusion/}{Conclusion}
+
+\begin{appendices}
+	\label{sec:appendix}
+ 	\FloatBarrier
+	\subimport{source}{appendix}
+ 	\newpage
+\end{appendices}
+
+\newpage
+ 
+\phantomsection % Needed for the bibliography bookmark to point to the correct page
+
+\begin{refcontext}[sorting=nyt]  % Sort BIBLIOGRAPHY by alphabet (while CITATIONS are sorted by year)
+\printbibliography[heading=bibintoc]
+\end{refcontext}
+
+\end{document}
