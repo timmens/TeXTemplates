@@ -8,16 +8,15 @@
 	pdfauthor={Adam Smith, Janet Smith, Jeremiah Smith}
 }
 
-\input{0_0_Preamble/Preamble_Page_layout_general}
-\input{0_0_Preamble/Preamble_Page_layout_paper}
-\subimport{0_0_Preamble/}{Preamble_Fonts_Charter_FiraSans}
-\input{0_0_Preamble/Preamble_Sansserif_math}
-\input{0_0_Preamble/Preamble_Commenting_and_highlighting}
-\input{0_0_Preamble/Preamble_Miscellaneous}
+\input{preamble/page_layout_general}
+\input{preamble/page_layout_paper}
+\subimport{preamble}{fonts_Charter_FiraSans}
+\input{preamble/sansserif_math}
+\input{preamble/commenting_and_highlighting}
+\input{preamble/miscellaneous}
 
-% makes compilation much longer:
-% \input{0_0_Preamble/Preamble_BibLaTeX_AER}
-\input{0_0_Preamble/Preamble_BibLaTeX_APA}
+% \input{preamble/BibLaTeX_AER}  % has a much longer compilation time compared to APA
+\input{preamble/BibLaTeX_APA}
 
 % Add global hyphenation rules to avoid unwelcome linebreaks:
 \hyphenation{Bu-shong Della-Vigna inter-tem-po-ral K\H{o}-szegi Spren-ger Bala-krish-nan}
@@ -28,19 +27,19 @@
 
 \defcitealias{Koszegi2013}{K\H{o}szegi--Szeidl}
 
-% \selectlanguage{USenglish} \frenchspacing
+\selectlanguage{USenglish} \frenchspacing
 
 \input{source/titlepage}
 
 \clearpage
 
-\subimport{1_Example_Content/1_Introduction/}{Introduction}
-\subimport{1_Example_Content/2_Methods/}{Design}
-\subimport{1_Example_Content/2_Methods/}{Predictions}
-\subimport{1_Example_Content/3_Results/}{Results}
-\subimport{1_Example_Content/3_Results/}{Structural_Estimation}
-\subimport{1_Example_Content/4_Discussion/}{Discussion}
-\subimport{1_Example_Content/5_Conclusion/}{Conclusion}
+\subimport{source/sections}{introduction}
+\subimport{source/sections}{design}
+\subimport{source/sections}{predictions}
+\subimport{source/sections}{results}
+\subimport{source/sections}{structural_estimation}
+\subimport{source/sections}{discussion}
+\subimport{source/sections}{conclusion}
 
 \begin{appendices}
 	\label{sec:appendix}
